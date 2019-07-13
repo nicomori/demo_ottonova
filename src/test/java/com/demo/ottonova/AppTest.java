@@ -1,38 +1,14 @@
 package com.demo.ottonova;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import cucumber.api.CucumberOptions;
 
 /**
- * Unit test for simple App.
+ * Example of Automation. Creator: Nicolas Mori
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+@CucumberOptions(plugin = { "html:target/cucumber-html-reports", "json:target/cucumber-html-reports/cucumber.json",
+		"junit:target/surefire-reports/cucumber-junit.xml" }, features = "src/test/resources/features", tags = "@Regression1", glue = {
+				"com.demo.ottonova.steps" })
+public class AppTest {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
